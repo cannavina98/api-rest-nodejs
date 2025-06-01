@@ -1,0 +1,9 @@
+{
+    "database":{
+        "mongoUrl":"mongodb://127.0.0.1:27017/api-rest-node"
+    },
+    "auth":{
+        "key":"tokenpassword1235456",
+        "expiresIn":"1d"
+    }
+}

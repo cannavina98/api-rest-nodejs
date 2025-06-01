@@ -1,0 +1,10 @@
+{
+    "extension": ["js","mjs"],
+    "require": "@babel/register",
+    "file": ["test/integration/helpers.mjs", "test/integration/global.mjs"],
+    "reporter":"spec",
+    "package": "./package.json",
+    "spec": "test/integration/**/*_spec.mjs",
+    "slow": 5000,
+    "timeout": 10000
+}

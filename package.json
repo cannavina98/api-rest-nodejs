@@ -1,0 +1,36 @@
+{
+  "name": "api-rest-node",
+  "version": "1.0.0",
+  "description": "API REST Nodejs v22",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "server": "npm run build && node dist/server.js",
+    "server:dev": "babel-node src/server.js",
+    "test:integration": "set NODE_ENV=test && mocha  --config=test/integration/.mocharc.json test/integration/**/*_spec.mjs --exit",
+    "test:unit": "set NODE_ENV=test && mocha --config=test/unit/.mocharc.json test/unit/**/*_spec.mjs --exit",
+    "test": "npm run test:unit && npm run test:integration"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.27.0",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/register": "^7.27.1",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.0",
+    "chai": "^5.2.0",
+    "config": "^3.3.12",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-acl": "^2.0.9",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^11.1.0",
+    "sinon": "^20.0.0",
+    "supertest": "^7.1.0"
+  },
+  "dependencies": {
+    "mongoose": "^8.13.2"
+  }
+}

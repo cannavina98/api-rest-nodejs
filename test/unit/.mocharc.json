@@ -1,0 +1,7 @@
+{
+    "extension": ["js","mjs"],
+    "require": "@babel/register",
+    "file": "test/unit/helpers.mjs",
+    "spec": "test/unit/**/*_spec.mjs",
+    "slow": 10000
+}
