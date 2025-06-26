@@ -25,7 +25,6 @@ describe('Controller: Projetos', () => {
             Projeto.find = sinon.stub();
             Projeto.find.withArgs({}).resolves(defaultProjeto);
             
-            console.log(response.send)
             const projetosController = new ProjetosController(Projeto);
 
             await projetosController.get(defaultRequest, response);

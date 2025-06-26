@@ -36,7 +36,6 @@ describe('Routes: Users', () => {
                 .get('/users')
                 .set({'x-access-token': authToken})
                 .end((err, res) => {
-                    console.log(res.body)
                     expect(res.body).to.eql([expectedAdminUser]);
                     done(err);
                 });

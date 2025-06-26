@@ -4,6 +4,14 @@ import bcrypt, { hashSync } from 'bcrypt'
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.ObjectId;
 
+//test user 
+/*
+    "name": "User 1",
+    "birthDate": "2025-06-25",
+    "email": "user1@mail.com",
+    "password": "123456",
+    "role": "admin"
+*/
 const userSchema = new Schema({
     name: {type: String},
     birthDate: {type: Date},
