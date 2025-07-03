@@ -15,14 +15,10 @@ jobs:
       - name: "\U0001F7E2 Usar Node.js"
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
       - name: "\U0001F4E6 Instalar dependências"
         run: npm install
-      - name: ⚙️ Configuração (opcional)
-        run: |
-          echo "Configurando ambiente..."
-          # Adicione comandos de configuração aqui, se necessário
-      - name: "\U0001F9EA Rodar testes (opcional)"
+      - name: "\U0001F9EA Rodar testes"
         run: npm test
       - name: Finalizar com sucesso
         run: echo "Sucesso!"
