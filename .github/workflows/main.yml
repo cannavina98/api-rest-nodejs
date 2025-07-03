@@ -1,11 +1,7 @@
 name: api-rest-nodejs
-'on':
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+
+'on': [push]
+
 jobs:
   build:
     runs-on: windows-latest
