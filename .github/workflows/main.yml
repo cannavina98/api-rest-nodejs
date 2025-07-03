@@ -1,0 +1,34 @@
+name: api-rest-nodejs
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: ⬇️ Clonar o repositório
+        uses: actions/checkout@v4
+
+      - name: 🟢 Usar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # ou a versão que seu projeto usa
+
+      - name: 📦 Instalar dependências
+        run: npm install
+
+      - name: ⚙️ Configuração (opcional)
+        run: |
+          echo "Configurando ambiente..."
+          # Adicione comandos de configuração aqui, se necessário
+
+      - name: 🧪 Rodar testes (opcional)
+        run: npm test  # ou outro script, se tiver
+
+      - name: ✅ Finalizar com sucesso
+        run: echo "✅ Sucesso!"
