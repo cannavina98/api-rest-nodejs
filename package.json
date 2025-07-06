@@ -7,8 +7,8 @@
     "build": "babel src --out-dir dist",
     "server": "npm run build && node dist/server.js",
     "server:dev": "babel-node src/server.js",
-    "test:integration": "set NODE_ENV=test && mocha  --config=test/integration/.mocharc.json test/integration/**/*_spec.mjs --exit",
-    "test:unit": "set NODE_ENV=test && mocha --config=test/unit/.mocharc.json test/unit/**/*_spec.mjs --exit",
+    "test:integration": "cross-env NODE_ENV=test && mocha  --config=test/integration/.mocharc.json test/integration/**/*_spec.mjs --exit",
+    "test:unit": "cross-env NODE_ENV=test && mocha --config=test/unit/.mocharc.json test/unit/**/*_spec.mjs --exit",
     "test": "npm run test:unit && npm run test:integration"
   },
   "author": "",
@@ -23,6 +23,7 @@
     "chai": "^5.2.0",
     "config": "^3.3.12",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^5.1.0",
     "express-acl": "^2.0.9",
     "jsonwebtoken": "^9.0.2",
