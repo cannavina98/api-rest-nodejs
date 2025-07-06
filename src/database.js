@@ -5,10 +5,7 @@ const mongoUrl = config.get('database.mongoUrl');
 
 
 const connect = async () => {
-    mongoose.connect(mongoUrl,{
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+    mongoose.connect(mongoUrl);
 
     await new Promise((resolve, reject) => {
         mongoose.connection.once('open', resolve)
