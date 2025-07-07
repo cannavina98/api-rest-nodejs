@@ -4,7 +4,7 @@ name: api-rest-nodejs
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     services:
       mongo:
