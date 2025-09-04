@@ -62,6 +62,7 @@ class UsersController{
 
     async authenticate (req, res){
         const authService = new this.AuthService(this.User);
+        
         const user = await authService.authenticate(req.body);
         
         if(!user){

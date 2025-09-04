@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "server": "npm run build && node dist/server.js",
+    "server": "npm run build && node ./dist/server.js",
     "server:dev": "babel-node src/server.js",
     "test:integration": "cross-env NODE_ENV=test && mocha  --config=test/integration/.mocharc.json test/integration/**/*_spec.mjs --exit",
     "test:unit": "cross-env NODE_ENV=test && mocha --config=test/unit/.mocharc.json test/unit/**/*_spec.mjs --exit",
@@ -22,14 +22,18 @@
     "body-parser": "^2.2.0",
     "chai": "^5.2.0",
     "config": "^3.3.12",
+    "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^5.1.0",
     "express-acl": "^2.0.9",
+    "express-session": "^1.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mocha": "^11.1.0",
+    "mocha": "^10.2.0",
     "sinon": "^20.0.0",
-    "supertest": "^7.1.0"
+    "supertest": "^7.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "dependencies": {
     "mongoose": "^8.13.2"

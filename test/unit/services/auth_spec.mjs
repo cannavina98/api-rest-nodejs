@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 
 const hashAsync = Util.promisify(bcrypt.hash);
-/*
+
 describe('Service:Auth', () =>{
     context('authenticate', () => {
         it('should authenticate an user', async () => {
@@ -20,14 +20,14 @@ describe('Service:Auth', () =>{
             };
 
             const authService = new AuthService(fakeUserModel);
-            const hashedPassword = await hashAsync(123456, 10);
+            const hashedPassword = await hashAsync('123456', 10);
             const userFromDatabase = {...user, password:hashedPassword };
 
             fakeUserModel.findOne
                 .withArgs({ email: 'john@doe.com' })
                 .resolves(userFromDatabase);
 
-            const res = await AuthService.authenticate(user);
+            const res = await authService.authenticate(user);
 
             expect(res).to.eql(userFromDatabase);
         });
@@ -48,8 +48,8 @@ describe('Service:Auth', () =>{
             });
 
             const authService = new AuthService(fakeUserModel);
-            const response = authService.authenticate(user);
-
+            const response = await authService.authenticate(user);
+            
             expect(response).to.be.false;
         });
     });
@@ -62,11 +62,11 @@ describe('Service:Auth', () =>{
             };
 
             const expectedToken = jwt.sign(payload, config.get('auth.key'), {
-                expiresIn: config.get('auth.ExpiresIn')
+                expiresIn: config.get('auth.expiresIn')
             });
 
-            const generatedToken = AuthService.generatedToken(payload);
+            const generatedToken = AuthService.generateToken(payload);
             expect(generatedToken).to.eql(expectedToken);
         });
     });
-});*/
+});
