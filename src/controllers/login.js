@@ -7,8 +7,8 @@ class LoginController {
     async login (req, res){
         const { email, senha } = req.body;
         const user = await this.User.findOne({email: email});
-
-        if (email != user.email){
+        
+        if (!user){
             return res.send('Usuário não encontrado')
         }
         const auth = new this.AuthService(this.User);

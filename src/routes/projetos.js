@@ -65,7 +65,7 @@ router.get('/:id', (req, res) => projetoController.getById(req, res));
 
 /**
  * @swagger
- *   /projetos/{id}:
+ *   /projetos:
  *     post:
  *       summary: Crie um projeto
  *       tags: [Projetos]

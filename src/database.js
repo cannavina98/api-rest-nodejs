@@ -1,8 +1,9 @@
-import mongoose from 'mongoose';
+import mongoose, { mongo } from 'mongoose';
 import config from 'config';
 
-const mongoUrl = config.get('database.mongoUrl');
-
+const mongoUrl = process.env.MONGO_URI || config.get('database.mongoUrl');
+console.log(process.env.MONGO_URI)
+console.log(mongoUrl)
 
 const connect = async () => {
     mongoose.connect(mongoUrl);

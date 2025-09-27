@@ -28,7 +28,7 @@ const configureExpress = () => {
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({
-            mongoUrl: config.get('database.mongoUrl'),
+            mongoUrl: process.env.MONGO_URI || config.get('database.mongoUrl'),
             collectionName: 'sessions'
         }),
         cookie:{

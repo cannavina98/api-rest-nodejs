@@ -7,7 +7,7 @@ const router = express.Router();
 router.use('/projetos', projetosRouter);
 router.use('/users', usersRouter);
 router.get('/', (req, res) => {
-    const filename = path.join(__dirname, '..', 'views', 'login')
+    const filename = path.join(__dirname, '..', '..', 'views', 'login.html')
     res.sendFile(filename);
 });
 

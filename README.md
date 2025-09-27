@@ -11,6 +11,8 @@ Esta é uma API RESTful desenvolvida em Node.js utilizando o padrão de arquitet
 * JWT (JSON Web Token): Autenticação segura por token.
 * BCrypt: Hash de senhas para armazenar credenciais com segurança.
 * MongoDB e Mongoose: Banco de dados NoSQL e modelagem dos dados com esquemas.
+* Swagger: Para melhor documentação da api.
+* Docker: Ambiente consistente de deploy e imagens.
 
 ## Comados
 * npm run server
