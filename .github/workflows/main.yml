@@ -5,27 +5,20 @@ name: api-rest-nodejs
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    services:
-      mongo:
-        image: mongo:6
-        ports:
-          - 27017:27017
+    
     steps:
       - name: Clonar o repositório
         uses: actions/checkout@v4
-      - name: "\U0001F7E2 Usar Node.js"
-        uses: actions/setup-node@v4
+      - name: Logando no docker
+        uses: docker/login-action@v3
         with:
-          node-version: '22'
-      - name: "\U0001F4E6 Instalar dependências"
-        run: npm install
-      - name: "\U0001F9EA Rodar testes"
-        run: npm test
-        env:
-          NODE_ENV: test
-          DB_HOST: localhost
-          DB_PORT: 27017
-          DB_NAME: test_db
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Build imagem docker
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api-rest-node:latest
+      - name: Subindo container
+        run : |
+          docker-compose up
       - name: Finalizar com sucesso
         run: echo "Sucesso!"
