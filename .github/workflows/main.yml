@@ -9,16 +9,19 @@ jobs:
     steps:
       - name: Clonar o repositório
         uses: actions/checkout@v4
-      - name: Logando no docker
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Build imagem docker
-        run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api-rest-node:latest
+      - name: Configurando docker build
+        uses: docker/setub-buildx-action@v3
       - name: Subindo container
-        run : |
-          docker-compose up
+        run: |
+          docker-compose up -d --build
+      - name: Aguardando os serviços iniciarem
+        run: |
+          sleep 10
+      - name: Rodar testes 
+        run: |
+          docker-compose exec -T api-rest-node npm test
+      - name: Derruba os containers
+        run: |
+          docker-compose down
       - name: Finalizar com sucesso
         run: echo "Sucesso!"
