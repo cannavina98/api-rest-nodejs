@@ -10,7 +10,7 @@ jobs:
       - name: Clonar o repositório
         uses: actions/checkout@v4
       - name: Configurando docker build
-        uses: docker/setub-buildx-action@v3
+        uses: docker/setup-buildx-action@v3
       - name: Subindo container
         run: |
           docker-compose up -d --build
