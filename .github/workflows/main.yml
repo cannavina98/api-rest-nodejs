@@ -19,7 +19,7 @@ jobs:
           sleep 10
       - name: Rodar testes 
         run: |
-          docker compose exec -T api-rest-node npm test
+          docker compose exec -T api npm test
       - name: Derruba os containers
         run: |
           docker compose down
